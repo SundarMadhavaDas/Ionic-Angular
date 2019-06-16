@@ -1,6 +1,8 @@
 pipeline {
    agent any
-
+      environment {
+         PATH='/usr/local/bin:/usr/bin:/bin'
+      }
    stages {
       stage('NPM Setup') {
       steps {
@@ -18,12 +20,6 @@ pipeline {
    steps {
       sh 'ionic cordova build android --release'
    }
-  }
-
-   stage('Stage Web Build') {
-      steps {
-        sh 'npm run build --prod'
-    }
   }
 
  }
