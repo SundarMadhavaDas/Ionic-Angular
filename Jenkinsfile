@@ -22,5 +22,35 @@ pipeline {
    }
   }
 
- }
+   stage('APK Sign') {
+   steps {
+      echo "apk sign Up"
+   }
+   }
 
+   stage('Stage Web Build') {
+      steps {
+        sh 'npm run build --prod'
+    }
+  }
+
+   stage('Publish Firebase Web') {
+      steps {
+      echo "public firebase"
+   }
+  }
+
+   stage('Publish iOS') {
+      steps {
+       echo "Publish iOS Action"
+    }
+   }
+
+   stage('Publish Android') {
+     steps {
+    echo "Publish Android API Action"
+   }
+  }
+
+ }
+}
